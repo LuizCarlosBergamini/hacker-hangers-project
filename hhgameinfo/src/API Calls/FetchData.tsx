@@ -1,32 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const FetchData: React.FC = () => {
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(
-                    "http://localhost:5000/api/game_time_to_beats",
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            query: "fields checksum,completely,count,created_at,game_id,hastily,normally,updated_at;"
-                        })
-                    }
-                );
-                const data = await response.json();
-                console.log(data);
-            } catch (err) {
-                console.error('Error fetching data:', err);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    return <div>Fetching Data...</div>;
+export type Suggestion = {
+    id: number;
+    name: string;
+    // Add other properties as needed
 };
 
-export default FetchData;
+const SearchIgdbGames = async (query: string) => {
+    let queryToUse = `fields name; search "${query}"; limit 5;`;
+
+    try {
+        const response = await fetch(
+            "http://localhost:5000/api/search",
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    query: queryToUse,
+                }),
+            }
+        );
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (err) {
+        console.error('Error fetching data:', err);
+    }
+
+    return [];
+
+};
+
+export default SearchIgdbGames;

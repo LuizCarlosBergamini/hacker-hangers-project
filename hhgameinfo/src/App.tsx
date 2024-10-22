@@ -1,22 +1,15 @@
 import { Form } from 'react-bootstrap'
 import './App.css'
-import GetIgdbGames from './API Calls/FetchData'
+import VideoGalaxyBg from './Components/VideoBg'
+import Input from './Components/Input'
 
 function App() {
   return (
-    <>
-      <Form.Label>Digite um Jogo!</Form.Label>
-      <Form.Control className='py-4 px-5'
-        // form.control for handling text input that is not password
-        type="text"
-        placeholder="Enter a game"
-      />
-      <Form.Text id="passwordHelpBlock" muted>
-        Escreva o nome do jogo que deseja pesquisar.
-      </Form.Text>
-
-      <GetIgdbGames />
-    </>
+    <div>
+      <VideoGalaxyBg />
+      <div className='bg-black w-100 h-100 position-absolute bg-opacity-75'></div>
+      <Input />
+    </div>
 
   )
 }
