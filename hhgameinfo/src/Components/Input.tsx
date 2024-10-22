@@ -36,17 +36,18 @@ const Input: React.FC = () => {
                 />
             </div>
             {suggestions.length > 0 && (
-                <ul className="list-group w-50 mt-3">
+                <div className='scrollspy-example p-3 rounded-2 w-50'>
                     {suggestions.map((suggestion, index) => (
-                        <li
+                        <button
+                            type='button'
                             key={index}
-                            className="list-group-item"
+                            className="btn d-block w-100 p-3 fs-4"
                             style={{ backgroundColor: '#bda1ff', border: '5px solid #533991' }}
                         >
                             {suggestion.name}
-                        </li>
+                        </button>
                     ))}
-                </ul>
+                </div>
             )}
         </main>
     );
