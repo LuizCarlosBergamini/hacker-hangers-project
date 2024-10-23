@@ -21,3 +21,21 @@ main {
   width: 100%;
   height: 100%;
 }
+
+/* Custom scrollbar styles */
+.scrollspy-example::-webkit-scrollbar {
+    width: 12px;
+}
+
+.scrollspy-example::-webkit-scrollbar-track {
+    background: #bda1ff;
+}
+
+.scrollspy-example::-webkit-scrollbar-thumb {
+    background: #533991;
+    border-radius: 10px;
+}
+
+.scrollspy-example::-webkit-scrollbar-thumb:hover {
+    background: #785abf;
+}
