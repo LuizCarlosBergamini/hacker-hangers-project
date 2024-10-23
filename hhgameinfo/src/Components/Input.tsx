@@ -23,7 +23,7 @@ const Input: React.FC = () => {
     }, [query]);
 
     return (
-        <main className='d-flex flex-column align-items-center justify-content-center'>
+        <>
             <h1 className='text-white'>Escolha um jogo para pesquisar!</h1>
             <div className="input-group input-group-lg w-50">
                 <input
@@ -49,7 +49,8 @@ const Input: React.FC = () => {
                     ))}
                 </div>
             )}
-        </main>
+        </>
+
     );
 };
 
