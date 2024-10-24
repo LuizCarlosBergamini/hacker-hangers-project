@@ -26,8 +26,8 @@ const Input: React.FC = () => {
 
     const navigate = useNavigate();
     const goToRegisterPage = (SelectedGame: Suggestion) => {
-        console.log(SelectedGame.game);
-        navigate(`/game/${SelectedGame.game}`);
+        console.log(SelectedGame.id);
+        navigate(`/game/${SelectedGame.id}`);
     }
 
     return (
@@ -51,7 +51,7 @@ const Input: React.FC = () => {
                         data-bs-root-margin="0px 0px -40%"
                         data-bs-smooth-scroll="true"
                         className='scrollspy-example p-3 rounded-2 w-50'
-                        style={{ maxHeight: '300px', overflowY: 'auto' }} // Make the container scrollable
+                        style={{ maxHeight: '300px', overflowY: 'auto' }}
                     >
                         {suggestions.map((suggestion, index) => (
                             <button

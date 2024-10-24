@@ -1,5 +1,5 @@
 export type Suggestion = {
-    game: number;
+    id: number;
     name: string;
     // Add other properties as needed
 };
@@ -14,11 +14,11 @@ export type Game = {
 };
 
 const SearchIgdbGames = async (query: string) => {
-    let queryToUse = `fields name,game; search "${query}"; limit 50;`;
+    let queryToUse = `fields name; where name ~ *"${query}"*; sort rating desc; limit 50;`;
 
     try {
         const response = await fetch(
-            "http://localhost:5000/api/search",
+            "http://localhost:5000/api/games",
             {
                 method: 'POST',
                 headers: {

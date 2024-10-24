@@ -20,7 +20,7 @@ app.post('/api/search', async (req, res) => {
                 headers: {
                     'Accept': 'application/json',
                     'Client-ID': 'flw1jituv6d1gacxg8xhi97kr6nb1k',
-                    'Authorization': 'Bearer btm0odt7g8ss86liubs8qez7ie11fi',
+                    'Authorization': 'Bearer 5rzar28b23txaasgwa4v95h1auzsaz',
                 },
                 body: req.body.query,
             });
@@ -44,7 +44,7 @@ app.post('/api/games', async (req, res) => {
                 headers: {
                     'Accept': 'application/json',
                     'Client-ID': 'flw1jituv6d1gacxg8xhi97kr6nb1k',
-                    'Authorization': 'Bearer btm0odt7g8ss86liubs8qez7ie11fi',
+                    'Authorization': 'Bearer 5rzar28b23txaasgwa4v95h1auzsaz',
                 },
                 body: req.body.query,
             });
