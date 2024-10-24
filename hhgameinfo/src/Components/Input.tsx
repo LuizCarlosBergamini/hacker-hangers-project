@@ -13,7 +13,6 @@ const Input: React.FC = () => {
             if (query.length > 0) {
                 const results = await SearchIgdbGames(query);
                 console.log(results);
-                setSuggestions(suggestions[0].game = results[0].game);
                 setSuggestions(results);
             } else {
                 setSuggestions([]);
@@ -26,9 +25,9 @@ const Input: React.FC = () => {
     }, [query]);
 
     const navigate = useNavigate();
-    const goToRegisterPage = () => {
-        console.log(suggestions[0].game);
-        navigate(`/game/${suggestions[0].game}`);
+    const goToRegisterPage = (SelectedGame: Suggestion) => {
+        console.log(SelectedGame.game);
+        navigate(`/game/${SelectedGame.game}`);
     }
 
     return (
@@ -59,7 +58,7 @@ const Input: React.FC = () => {
                                 type='button'
                                 key={index}
                                 className="btn d-block w-100 p-3 fs-4"
-                                onClick={goToRegisterPage}
+                                onClick={() => goToRegisterPage(suggestion)}
                                 style={{ backgroundColor: '#bda1ff', border: '5px solid #533991' }}
                             >
                                 {suggestion.name}

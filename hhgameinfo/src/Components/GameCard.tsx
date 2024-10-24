@@ -9,7 +9,7 @@ const GameCard: React.FC = () => {
 
     useEffect(() => {
         const fetchGames = async () => {
-            const results = await GetIgdbGames(params.id);
+            const results = await GetIgdbGames(params.id ?? '0');
             console.log(results);
             setGames(results);
 
@@ -19,26 +19,28 @@ const GameCard: React.FC = () => {
     }, []);
 
     return (
-        <div className="card mb-3" style={{ maxWidth: '540px', backgroundColor: '#bda1ff', border: '5px solid #533991' }}>
-            <div className="row g-0">
-                <div className="col-md-4">
-                    {games.length > 0 && (
-                        <img src={games[0].screenshots[0].url} className="img-fluid rounded-start" alt={games[0].name} />
-                    )}
-                </div>
-                <div className="col-md-8">
-                    <div className="card-body">
+        <main className='d-flex flex-column align-items-center justify-content-center'>
+            <div className="card mb-3" style={{ maxWidth: '540px', backgroundColor: '#bda1ff', border: '5px solid #533991' }}>
+                <div className="row g-0">
+                    <div className="col-md-4">
                         {games.length > 0 && (
-                            <>
-                                <h5 className="card-title">{games[0].name}</h5>
-                                <p className="card-text">{games[0].summary}</p>
-                                <p className="card-text"><small className="text-body-secondary">Rating: {(Math.round(games[0].rating)) / 10}</small></p>
-                            </>
+                            <img className="img-fluid rounded-start" alt={games[0].name} />
                         )}
+                    </div>
+                    <div className="col-md-8">
+                        <div className="card-body">
+                            {games.length > 0 && (
+                                <>
+                                    <h5 className="card-title">{games[0].name}</h5>
+                                    <p className="card-text">{games[0].summary}</p>
+                                    <p className="card-text"><small className="text-body-secondary">Rating: {(Math.round(games[0].rating)) / 10}</small></p>
+                                </>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     );
 };
 
