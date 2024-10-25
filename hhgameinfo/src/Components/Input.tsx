@@ -39,7 +39,7 @@ const Input: React.FC = () => {
                         type="text"
                         className="form-control p-4 text-white fs-3 text"
                         placeholder='Digite o jogo que deseja buscar!'
-                        style={{ backgroundColor: '#bda1ff', border: '5px solid #533991' }}
+                        style={{ backgroundColor: 'rgba(189, 161, 255, 0.5)', border: '5px solid #533991' }}
                         value={query}
                         onChange={(e) => setQuery(e.target.value.toString())}
                     />
@@ -57,9 +57,9 @@ const Input: React.FC = () => {
                             <button
                                 type='button'
                                 key={index}
-                                className="btn d-block w-100 p-3 fs-4"
+                                className="btn d-block w-100 text-white p-3 fs-4"
                                 onClick={() => goToRegisterPage(suggestion)}
-                                style={{ backgroundColor: '#bda1ff', border: '5px solid #533991' }}
+                                style={{ backgroundColor: 'rgba(189, 161, 255, 0.5)', border: '5px solid #533991' }}
                             >
                                 {suggestion.name}
                             </button>
