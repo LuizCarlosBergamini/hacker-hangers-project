@@ -4,8 +4,35 @@ const cors = require('cors');
 const app = express();
 const port = 5000;
 
+const CLIENT_ID = "flw1jituv6d1gacxg8xhi97kr6nb1k";
+const AUTH = "Bearer 5rzar28b23txaasgwa4v95h1auzsaz";
+
 app.use(cors());
 app.use(express.json());
+
+app.post('/api/events', async (req, res) => {
+    try {
+        console.log('Request body:', req.body);
+
+        const fetch = (await import('node-fetch')).default;
+
+        const response = await fetch(
+            "https://api.igdb.com/v4/events",
+            {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Client-ID': CLIENT_ID,
+                    'Authorization': AUTH,
+                },
+                body: req.body.query,
+            });
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
 
 app.post('/api/games', async (req, res) => {
     try {
@@ -19,8 +46,8 @@ app.post('/api/games', async (req, res) => {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Client-ID': 'flw1jituv6d1gacxg8xhi97kr6nb1k',
-                    'Authorization': 'Bearer 5rzar28b23txaasgwa4v95h1auzsaz',
+                    'Client-ID': CLIENT_ID,
+                    'Authorization': AUTH,
                 },
                 body: req.body.query,
             });

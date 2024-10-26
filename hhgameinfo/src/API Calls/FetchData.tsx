@@ -13,6 +13,31 @@ export type Game = {
     // Add other properties as needed
 };
 
+export const SearchEvents = async () => {
+    try {
+        const response = await fetch(
+            "http://localhost:5000/api/events",
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    query: "fields *;",
+                }),
+            }
+        );
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (err) {
+        console.error('Error fetching data:', err);
+    }
+
+    return [];
+
+}
+
 const SearchIgdbGames = async (query: string) => {
     let queryToUse = `fields name; where name ~ *"${query}"*; sort rating desc; limit 50;`;
 
