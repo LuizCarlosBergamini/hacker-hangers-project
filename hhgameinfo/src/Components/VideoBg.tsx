@@ -11,7 +11,7 @@ const VideoGalaxyBg: React.FC<Props> = () => {
     };
 
     return (
-        <video className='w-100 object-fit-cover h-100 position-absolute top-0 start-0' src={GalaxyBg} autoPlay muted loop onError={handleVideoError}>
+        <video className='w-100 object-fit-cover h-100 position-fixed top-0 start-0' src={GalaxyBg} autoPlay muted loop onError={handleVideoError}>
             Your browser does not support the video tag.
         </video>
     );
