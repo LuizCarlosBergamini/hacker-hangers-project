@@ -10,6 +10,7 @@ export type Game = {
     screenshots: { url: string }[];
     summary: string;
     rating: number;
+    genres: { name: string }[];
     // Add other properties as needed
 };
 
@@ -39,6 +40,8 @@ export const SearchEvents = async () => {
 }
 
 const SearchIgdbGames = async (query: string) => {
+    // Eu até fiz a filtragem por uma função manualmente puxando odos os jogos e filtrando eu mesmo
+    // Mas o IGDB nao deixa eu puxar todos os jogos pois são mais de 428 mil. Então o jeito é fazer assim
     let queryToUse = `fields name; where name ~ *"${query}"*; sort rating desc; limit 50;`;
 
     try {
@@ -67,7 +70,7 @@ const SearchIgdbGames = async (query: string) => {
 
 
 export const GetIgdbGames = async (GameId: string): Promise<Game[]> => {
-    let query = `fields name,screenshots.url,summary,rating; where id = ${GameId};`;
+    let query = `fields name,screenshots.url,summary,rating,genres.name; where id = ${GameId};`;
 
     try {
         const response = await fetch(

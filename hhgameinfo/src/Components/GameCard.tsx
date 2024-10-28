@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { GetIgdbGames } from '../API Calls/FetchData';
 import { Game } from '../API Calls/FetchData';
 import { useParams } from 'react-router-dom';
-import Input from './Input';
 
 const GameCard: React.FC = () => {
     const [games, setGames] = useState<Game[]>([]);
@@ -90,7 +89,10 @@ const GameCard: React.FC = () => {
                         {games.length > 0 && (
                             <>
                                 <h5 className="card-title">{games[0].name}</h5>
-                                <p className="card-text"><small className="text-body-secondary">Rating: {(Math.round(games[0].rating)) / 10}</small></p>
+                                <p className="card-text"><small className="text-body-secondary fs-5">Rating: {(Math.round(games[0].rating)) / 10}</small></p>
+                                <p className='card-text fs-6'>Genres: {games[0].genres.map((genre, index) => (
+                                    <span key={index} className='badge bg-danger-subtle text-black fw-light me-1'>{genre.name}</span>
+                                ))}</p>
                             </>
                         )}
                     </div>

@@ -46,7 +46,7 @@ const Eventos: React.FC = () => {
                 <h1 className='fs-1 text-white mb-3'>Eventos</h1>
                 <ul className="list-group" style={{ maxHeight: '300px', width: '50%', overflowY: 'auto' }}>
                     {events?.map((event, index) => (
-                        <li className="scrollspy-example text-light list-group-item d-flex justify-content-between p-3 fs-5"
+                        <li key={index} className="scrollspy-example text-light list-group-item d-flex justify-content-between p-3 fs-5"
                             style={{ backgroundColor: 'rgba(189, 161, 255, 0.5)', border: '2px solid #533991' }}
                         >
                             <div>

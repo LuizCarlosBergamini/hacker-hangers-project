@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Suggestion } from '../API Calls/FetchData';
 import SearchIgdbGames from '../API Calls/FetchData';
-import { useNavigate } from 'react-router-dom';
 
 interface InputProps {
-    goToCardPage?: (SelectedGame: Suggestion) => void;
+    goToCardPage: (SelectedGame: Suggestion) => void;
 }
 
 const Input: React.FC<InputProps> = ({ goToCardPage }) => {
@@ -47,7 +46,7 @@ const Input: React.FC<InputProps> = ({ goToCardPage }) => {
                     data-bs-spy="scroll"
                     data-bs-root-margin="0px 0px -40%"
                     data-bs-smooth-scroll="true"
-                    className='scrollspy-example p-3 rounded-2 w-50'
+                    className='scrollspy-example p-3 rounded-2 w-100'
                     style={{ maxHeight: '300px', overflowY: 'auto' }}
                 >
                     {suggestions.map((suggestion, index) => (
@@ -55,7 +54,7 @@ const Input: React.FC<InputProps> = ({ goToCardPage }) => {
                             type='button'
                             key={index}
                             className="btn d-block w-100 text-white p-3 fs-4"
-                            onClick={() => goToCardPage && goToCardPage(suggestion)}
+                            onClick={() => goToCardPage(suggestion)}
                             style={{ backgroundColor: 'rgba(189, 161, 255, 0.5)', border: '5px solid #533991' }}
                         >
                             {suggestion.name}

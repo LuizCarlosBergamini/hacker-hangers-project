@@ -13,8 +13,8 @@ const InputPage: React.FC = () => {
 
     return (
         <div>
-            <h1 className='text-white'>Escolha um jogo para pesquisar!</h1>
             <main className='d-flex flex-column align-items-center justify-content-center'>
+                <h1 className='text-white'>Escolha um jogo para pesquisar!</h1>
                 <div className='w-50'>
                     <Input goToCardPage={goToCardPage} />
                 </div>
