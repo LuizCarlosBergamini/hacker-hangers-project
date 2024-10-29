@@ -5,7 +5,7 @@ const app = express();
 const port = 5000;
 
 const CLIENT_ID = "flw1jituv6d1gacxg8xhi97kr6nb1k";
-const AUTH = "Bearer 5rzar28b23txaasgwa4v95h1auzsaz";
+const AUTH = "Bearer 4baa18i9pt95353f68hehsjdltyho7";
 
 app.use(cors());
 app.use(express.json());
