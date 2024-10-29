@@ -27,16 +27,23 @@ const Eventos: React.FC = () => {
 
 
     const filterEventData = (event: Event) => {
-        const timestamp = Number(event.start_time);
-        const date = new Date(timestamp * 1000);
-        console.log(date.toLocaleString());
+        let start_time;
+        if (event.start_time) {
+            const timestamp = Number(event.start_time);
+            const date = new Date(timestamp * 1000);
+            start_time = date.toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+        } else {
+            start_time = "Sem Data";
+        }
 
         return {
             id: event.id,
             name: event.name,
-            description: event.description,
-            start_time: date.toLocaleString(),
-            live_stream_url: event.live_stream_url
+            start_time: start_time,
         };
     }
 

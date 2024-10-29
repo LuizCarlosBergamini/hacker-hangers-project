@@ -10,6 +10,30 @@ const AUTH = "Bearer 5rzar28b23txaasgwa4v95h1auzsaz";
 app.use(cors());
 app.use(express.json());
 
+app.post('/api/companies', async (req, res) => {
+    try {
+        console.log('Request body:', req.body);
+
+        const fetch = (await import('node-fetch')).default;
+
+        const response = await fetch(
+            "https://api.igdb.com/v4/companies",
+            {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Client-ID': CLIENT_ID,
+                    'Authorization': AUTH,
+                },
+                body: req.body.query,
+            });
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
+
 app.post('/api/events', async (req, res) => {
     try {
         console.log('Request body:', req.body);

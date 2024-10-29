@@ -14,6 +14,31 @@ export type Game = {
     // Add other properties as needed
 };
 
+export const SearchCompanies = async () => {
+    try {
+        const response = await fetch(
+            "http://localhost:5000/api/companies",
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    query: "fields name,url;",
+                }),
+            }
+        );
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (err) {
+        console.error('Error fetching data:', err);
+    }
+
+    return [];
+
+}
+
 export const SearchEvents = async () => {
     try {
         const response = await fetch(

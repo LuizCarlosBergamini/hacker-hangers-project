@@ -5,6 +5,7 @@ import Header from './Components/Header'
 import Eventos from './Components/Eventos'
 import InputPage from './Pages/InputPage'
 import GameCardPage from './Pages/GameCardPage'
+import Companies from './Components/Companies'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<InputPage />} />
           <Route path='/game/:id' element={<GameCardPage />} />
           <Route path='/eventos' element={<Eventos />} />
+          <Route path='/companies' element={<Companies />} />
         </Routes>
       </BrowserRouter>
     </>
