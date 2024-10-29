@@ -47,7 +47,7 @@ const GameCard: React.FC = () => {
                         <div id="carouselExampleIndicators" className="carousel slide">
                             <div className="carousel-indicators">
                                 {games.length > 0 && (
-                                    GamesScreenshots.map((screenshotUrl, index) => (
+                                    GamesScreenshots.map((_screenshotUrl, index) => (
                                         <button
                                             key={index}
                                             type="button"
